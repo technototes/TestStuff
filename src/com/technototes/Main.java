@@ -24,9 +24,19 @@ public class Main {
     sleep(100);
     dump("100 later");
     lift.up();
-    sleep(10000);
+    sleep(1000);
     lift.stop();
-    dump("up for 10000");
+    dump("up for 1000");
+    lift.AcquireBrickWait();
+    dump("Just acquired");
+    java.util.Random rnd = new java.util.Random(System.currentTimeMillis());
+    for (int i = 0; i < 20; i++) {
+      int which = Math.abs(rnd.nextInt() % 7);
+      lift.LiftBrickWait(which);
+      dump(String.format("Went to %d", which));
+      lift.SetBrickWait();
+      dump("Setting brick");
+    }
     System.exit(0);
   }
 }

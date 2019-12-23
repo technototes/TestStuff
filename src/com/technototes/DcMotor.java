@@ -14,7 +14,7 @@ public class DcMotor implements java.lang.Runnable {
   // The speed at which the power reduces per ms when in 'float' mode
   private static final double FLOAT_POWER_RATIO = .03;
   // The speed at which the power reduces per ms when in 'brake' mode
-  private static final double BRAKE_POWER_RATIO = .07;
+  private static final double BRAKE_POWER_RATIO = .1;
   // The speed at which the power increases per ms when it's initially applied
   private static final double START_POWER_RATIO = .02;
 
