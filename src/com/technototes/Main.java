@@ -12,8 +12,24 @@ public class Main {
   private static void dump(String heading) {
     System.out.printf("%s: Left: %s, Right %s [%d]\n", heading, left, right, tm.milliseconds());
   }
+  public static double goToAngle(double target, double current) {
+    double delta = (target % 360) - (current % 360.0);
+    if (delta > 180) {
+      return delta - 360;
+    } else if (delta < -180) {
+      return 360 + delta;
+    } else {
+      return delta;
+    }
+  }
 
   public static void main(String[] args) {
+    for (double i = -380.0; i < 380.0; i += 4.75) {
+      for (double j = 380.0; j > -380.0; j -= 7.5) {
+        System.out.printf("%f to %f = %f\n", i, j, goToAngle(j, i));
+      }
+    }
+    System.exit(0);
     left = new DcMotor(0);
     right = new DcMotor(1);
     tm =  new ElapsedTime();
